@@ -1,5 +1,7 @@
+// NavBar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 const NavBar = () => {
   return (
@@ -9,7 +11,7 @@ const NavBar = () => {
       </h1>
       <ul>
         <li>
-          <Link to="/logs/new">Add Log</Link>
+          <Link to="/logs/new">New Log</Link>
         </li>
       </ul>
     </nav>

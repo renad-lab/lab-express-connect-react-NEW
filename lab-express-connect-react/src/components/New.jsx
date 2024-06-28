@@ -13,8 +13,8 @@ const New = () => {
     captainName: "",
     title: "",
     post: "",
-    mistakesWereMadeToday: true,
     daysSinceLastCrisis: 0,
+    mistakesWereMadeToday: true,
   });
 
   // Handle input change
@@ -94,18 +94,6 @@ const New = () => {
             className="input textarea"
           />
         </div>
-        <div className="input-group checkbox-label">
-          <label className="label">
-            <input
-              type="checkbox"
-              name="mistakesWereMadeToday"
-              checked={newLog.mistakesWereMadeToday}
-              onChange={handleCheckBox}
-              className="checkbox"
-            />
-            Mistakes Were Made Today
-          </label>
-        </div>
         <div className="input-group">
           <label htmlFor="daysSinceLastCrisis" className="label">
             Days Since Last Crisis:
@@ -119,6 +107,18 @@ const New = () => {
             onChange={handleChange}
             className="input"
           />
+        </div>
+        <div className="input-group checkbox-label">
+          <label className="label">
+            <input
+              type="checkbox"
+              name="mistakesWereMadeToday"
+              checked={newLog.mistakesWereMadeToday}
+              onChange={handleCheckBox}
+              className="checkbox"
+            />
+            Mistakes Were Made Today
+          </label>
         </div>
         <button type="submit" className="button">
           Submit

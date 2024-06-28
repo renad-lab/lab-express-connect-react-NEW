@@ -6,6 +6,8 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: #1a1a1a;
+  color: #f2f2f2;
 }
 
 .fieldset {
@@ -27,18 +29,27 @@
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #f2f2f2;
 }
 
 .input {
-  width: 100%;
+  width: calc(100% - 20px);
   padding: 8px;
   font-size: 1em;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin: 5px;
 }
 
 .textarea {
+  width: calc(100% - 20px);
   min-height: 100px;
+  resize: vertical;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 5px;
 }
 
 .checkbox-label {
@@ -51,10 +62,14 @@
 
 .button {
   background-color: #007bff;
-  color: #fff;
+  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1em;
+}
+
+.button:hover {
+  background-color: #0056b3;
 }
