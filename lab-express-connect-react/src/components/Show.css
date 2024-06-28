@@ -1,12 +1,11 @@
-/* Show.css */
-
 .log-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  min-height: 100vh;
   background-color: #121212;
   color: #f2f2f2;
+  padding: 20px;
 }
 
 .log-box {
@@ -15,19 +14,28 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left;
   max-width: 600px;
   width: 100%;
   box-sizing: border-box;
 }
 
+.log-box h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.log-box p {
+  margin-bottom: 8px;
+}
+
 .button-group {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
 }
 
-button {
+.button-group button {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -37,14 +45,18 @@ button {
   font-size: 16px;
 }
 
-button:hover {
+.button-group button:hover {
   background-color: #0056b3;
 }
 
-button:focus {
+.button-group button:focus {
   outline: none;
 }
 
-button:active {
+.button-group button:active {
   background-color: #003f7f;
+}
+
+.back-button {
+  margin-top: 20px;
 }

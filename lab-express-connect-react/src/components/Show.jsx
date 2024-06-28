@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import NotFound from "./NotFound";
 import "./Show.css";
 
 const Show = () => {
@@ -10,20 +11,33 @@ const Show = () => {
 
   useEffect(() => {
     fetch(`${API}/${index}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Log not found");
+        }
+        return res.json();
+      })
       .then((data) => setLog(data))
-      .catch((err) => console.error("Error fetching log:", err));
+      .catch((err) => {
+        console.error("Error fetching log:", err);
+        navigate("/404", { replace: true });
+      });
   }, []);
 
   const handleDelete = () => {
-    fetch(`${API}/${index}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then(() => {
-        navigate("/logs");
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this log entry?"
+    );
+    if (confirmed) {
+      fetch(`${API}/${index}`, {
+        method: "DELETE",
       })
-      .catch((err) => console.error("Error deleting log:", err));
+        .then((res) => res.json())
+        .then(() => {
+          navigate("/logs");
+        })
+        .catch((err) => console.error("Error deleting log:", err));
+    }
   };
 
   return (
@@ -48,7 +62,7 @@ const Show = () => {
           <button onClick={() => navigate("/logs")}>Back</button>
         </div>
       ) : (
-        <p>Loading...</p>
+        <NotFound />
       )}
     </div>
   );
